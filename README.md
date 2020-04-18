@@ -1,5 +1,6 @@
 # task-2 修正箇所  
 	※Rspecテストが行えなくて断念(2020/4/17)  
+	※Rspecのテスト実行が行えたので完了(2020/4/18)  
   
 ---  
 1. Gemfileに[gem 'bootstrap-sass']を追加  
@@ -11,6 +12,7 @@
 4. users_controller.ebに以下の内容を追加  
 	- 5段目: @newbook = Book.new  
 	- 12段目: end  
+	- 25段目:redirect_to user(sを削除)_path…  
 	- 27行目: render "**edit**"  
 5. books_controller.ebに以下の内容を追加  
 	- 6行目: @user = @book.user  
@@ -22,7 +24,7 @@
 	- 36~38行目: **@**を削除  
   	- 53行目: params.require(:book).permit(:title, **:body**)  
 ---  
-6. model >conserns 内の、book.rbとuser.rbについて、記載内容を修正  
+6. model内の、book.rbとuser.rbについて、記載内容を修正  
 	- book.rb：has_many :user → belongs_to :user  
 	- book.rb：validates :introduction, length: {maximum: 50}  
 	- user.rb：belongs_to :books → has_many :books, dependent: :destroy  
